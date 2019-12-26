@@ -9,23 +9,23 @@
 
 </head>
 <body>
-	<form action="modify" method="post">
+	<form action="update" method="post">
 		<table>
 			<tr>
 				<td>프로젝트 이름</td>
-				<td><input type="text" name="title" value="${list.title}">
-				<input type="hidden" name="no" value="${list.no}"></td>
+				<td><input type="text" name="title" value="${Project.title}">
+				<input type="hidden" name="no" value="${Project.no}"></td>
 			</tr>
 			<tr>
 				<td>프로젝트 내용</td>
-				<td><textarea name="content" rows="10" cols="60">${list.content}</textarea></td>
+				<td><textarea name="content" rows="10" cols="60">${Project.content}</textarea></td>
 			</tr>
 			<tr>
-				<td>시작날짜</td> <fmt:formatDate var="s_date" pattern="yyyy-MM-dd" value="${list.start_date}"></fmt:formatDate>
+				<td>시작날짜</td> <fmt:formatDate var="s_date" pattern="yyyy-MM-dd" value="${Project.start_date}"></fmt:formatDate>
 				<td><input type="date" name="start_date" value="${s_date}" class = "date"></td>
 			</tr>
 			<tr>
-				<td>마감날짜</td> <fmt:formatDate var="e_date" pattern="yyyy-MM-dd" value="${list.end_date}"></fmt:formatDate>
+				<td>마감날짜</td> <fmt:formatDate var="e_date" pattern="yyyy-MM-dd" value="${Project.end_date}"></fmt:formatDate>
 				<td><input type="date" name="end_date" value="${e_date}" class = "date"></td>
 			</tr>
 			<tr>

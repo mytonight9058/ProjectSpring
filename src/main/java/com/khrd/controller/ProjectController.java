@@ -50,21 +50,7 @@ public class ProjectController {
 		model.addAttribute("list",list);
 		
 	}
-
 	
-	@RequestMapping(value = "update" , method= RequestMethod.POST)
-	public String modify(Project vo,Model model) {
-		
-		logger.info("----------------modify- Post---------------"+vo);
-		
-		service.update(vo);
-		model.addAttribute("boardVo",vo);
-		
-		return null;
-	}	
-	
-
-
 	
 	@RequestMapping(value = "delete" , method= RequestMethod.GET)
 	public String removePage(int no,Model model,Criteria cri) {
@@ -72,7 +58,7 @@ public class ProjectController {
 		service.delete(no);
 		model.addAttribute("cri",cri);
 		
-		return null;
+		return "redirect:/project/list";
 	}
 	
 	
@@ -88,28 +74,28 @@ public class ProjectController {
 	}
 	
 	
-	@RequestMapping(value = "modify" , method= RequestMethod.GET)
+	@RequestMapping(value = "update" , method= RequestMethod.GET)
 	public String modifyGet(int no,Model model,Criteria cri) {
-		logger.info("--------------------------modify-----------------------------------------" + no);
+		logger.info("--------------------------update-----------------------------------------" + no);
 		
 		Project vo = service.SelectByNo(no);
 		model.addAttribute("Project",vo);
 		model.addAttribute("cri",cri);
-		return "/Project/modify?page="+cri.getPage();
+		return "project/update";
+		
+//		return "/project/modify?page="+cri.getPage();
 	}
 	
-	@RequestMapping(value = "modify" , method= RequestMethod.POST)
+	@RequestMapping(value = "update" , method= RequestMethod.POST)
 	public String modifyPost(Project vo,Model model) {
 		
-		logger.info("----------------modify- Post---------------"+vo);
+		logger.info("----------------update- Post---------------"+vo);
 		
 		service.update(vo);
 		model.addAttribute("Project",vo);
-		
-		return "redirect:/project/detail?bno="+vo.getNo();
+		return "redirect:/project/detail?no="+vo.getNo();
+//		return "redirect:/project/detail?no="+vo.getNo();
 	}	
-	
-
 	
 
 	

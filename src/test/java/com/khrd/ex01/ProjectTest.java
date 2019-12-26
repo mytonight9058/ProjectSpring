@@ -18,20 +18,18 @@ public class ProjectTest {
 
 	@Autowired
 	private ProjectDao dao;
-	
-	
+		
 //	@Test
 	public void testListAll() {
 		
 		dao.list();
-		
-		
+				
 	}
-	@Test
+//	@Test
 	public void testInsert() {
 		
 		Project vo = new Project();
-		vo.setNo(1);
+		vo.setNo(2);
 		vo.setEnd_date(new Date());
 		vo.setStart_date(new Date());
 		vo.setTitle("d");
@@ -44,26 +42,30 @@ public class ProjectTest {
 	}
 	
 //	@Test
-	public void testSelectById(int bno) {
-		
+	public void testSelectById() {
+		dao.SelectByNo(1);
 	}
 	
 //	@Test
 	public void modify() {
 		
+		Project vo = new Project();
+		vo.setNo(1);
+		vo.setEnd_date(new Date());
+		vo.setStart_date(new Date());
+		vo.setTitle("s");
+		vo.setState("b");
+		vo.setContent("xx");
+		
+		
+		dao.update(vo);
 
 	}
-//	@Test
-	public void testDelete(int bno) {
+	@Test
+	public void testDelete() {
 		
-		dao.delete(2);
+		dao.delete(1);
 	}
-//	@Test
-	public void testPage() {
-		
-
-	}
-	
 
 	
 	
